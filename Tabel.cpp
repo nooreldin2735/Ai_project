@@ -112,6 +112,31 @@ public:
     return  ocur;
 
   }
+
+  void print()
+  {
+    int cols = 3; 
+    int rows = 9/ cols;  
+    for (int i = 0; i < rows; i++) {
+        cout << "+---";
+    }
+    cout << "+" << endl;  
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            int index = i * cols + j+1 ; 
+            if (index <= 9) {
+                cout << "| " << table[index] << " ";  
+            } else {
+                cout << "|   ";  
+            }
+        }
+        cout << "|" << endl;  
+        for (int j = 0; j < cols; j++) {
+            cout << "+---";
+        }
+        cout << "+" << endl;
+    }
+  }
 };
 
 
@@ -122,5 +147,7 @@ int main()
   int arr2[]={2,4,3,5,0,6,7,9,8 };
   Table t(arr);
   Table t2(arr2);
-  cout<< t.HFunction(t2)<<endl;
+  t.moveDown();
+  t.print();
+  //cout<< t.HFunction(t2)<<endl;
 }
